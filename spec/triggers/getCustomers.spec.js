@@ -3,8 +3,8 @@ describe('e-conomic get customers trigger', function () {
     var request = require("request");
     var allCustomersJSON = require('./../data/all_customers.json.js');
     var allCustomersOutJSON = require('./../data/all_customers_out.json.js');
-    var messages = require('../../../../lib/components/messages.js');
-    var processTrigger = require('../../../../lib/components/economic/lib/triggers/getCustomers.js');
+    var messages = require('elasticio-node').messages;
+    var processTrigger = require('../../lib/triggers/getCustomers');
     var moment = require('moment');
     var nock = require('nock');
 
@@ -12,7 +12,6 @@ describe('e-conomic get customers trigger', function () {
     var cfg = { "accessId": "mraewfJwjUf9HRtjcWoVdqGYEXLqSGJlg_Y78WHwnTg1"};
     var snapshot = { lastChecked : '1970-01-01T00:00:00.000Z' };
     var newSnapshot;
-    var next = jasmine.createSpy('next');
 
     var self;
 
@@ -40,7 +39,7 @@ describe('e-conomic get customers trigger', function () {
             .reply(200, allCustomersJSON);
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){
@@ -78,7 +77,7 @@ describe('e-conomic get customers trigger', function () {
             });
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){

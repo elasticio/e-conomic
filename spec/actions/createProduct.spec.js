@@ -1,8 +1,8 @@
 describe('e-conomic create product action', function() {
 
-    var processAction = require('../../../../lib/components/economic/lib/actions/createProduct.js');
-    var products = require('../../../../lib/components/economic/lib/commons/products.js');
-    var messages = require('../../../../lib/components/messages.js');
+    var processAction = require('../../lib/actions/createProduct');
+    var products = require('../../lib/commons/products');
+    var messages = require('elasticio-node').messages;
     var nock = require('nock');
 
     process.env.ECONOMIC_PUBLIC_KEY = 'xJYREvIW6-Dl3GipNYEeNrQPb1CjTB-x_26Gb4YuHTo1';

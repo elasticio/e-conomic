@@ -1,9 +1,9 @@
 describe('e-conomic create invoice action', function() {
 
-    var processAction = require('../../../../lib/components/economic/lib/actions/createInvoice.js');
-    var economic = require('../../../../lib/components/economic/lib/economic.js');
+    var processAction = require('../../lib/actions/createInvoice');
+    var economic = require('../../lib/economic');
 
-    var messages = require('../../../../lib/components/messages.js');
+    var messages = require('elasticio-node').messages;
     var nock = require('nock');
 
     var customerOutJSON = require('./../data/create_customer_out.json.js');

@@ -6,11 +6,12 @@ describe('e-conomic get booked invoices', function () {
     var bookedInvoiceOut1JSON = require('./../data/booked_invoice_out.1.json.js');
     var bookedInvoiceOut2JSON = require('./../data/booked_invoice_out.2.json.js');
     var bookedInvoiceOut3JSON = require('./../data/booked_invoice_out.3.json.js');
-    var messages = require('../../../../lib/components/messages.js');
-    var processTrigger = require('../../../../lib/components/economic/lib/triggers/getBookedInvoices.js');
+    var messages = require('elasticio-node').messages;
+    var attachments = require('../../lib/attachments');
+    var processTrigger = require('../../lib/triggers/getBookedInvoices');
     var moment = require('moment');
     var nock = require('nock');
-    var _ = require('underscore');
+    var _ = require('lodash');
     var Q = require('q');
 
     var msg = messages.newMessageWithBody({});
@@ -20,7 +21,6 @@ describe('e-conomic get booked invoices', function () {
     };
     var snapshot = {lastChecked: '1970-01-01T00:00:00.000Z'};
     var newSnapshot;
-    var next = jasmine.createSpy('next');
 
     process.env.S3_SECRET = process.env.S3_SECRET || 'my-secret';
     process.env.S3_KEY = process.env.S3_KEY       || 'my-key';
@@ -45,22 +45,19 @@ describe('e-conomic get booked invoices', function () {
     }
 
     function nockAllPDF(){
-        var pdfURL;
+        //var pdfURL;
         var fileName;
 
-        pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20001/pdf';
-        fileName = path.join(process.cwd(),'spec/components/economic/data/20001.pdf');
-        console.log('gonna load sync pdf mock from : %s',fileName);
-        bookedInvoicePDF1 = fs.readFileSync(fileName,'utf8');
+        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20001/pdf';
+        fileName = path.join(__dirname, '../data/20001.pdf');
+        bookedInvoicePDF1 = fs.readFileSync(fileName, 'utf8');
 
-        pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20002/pdf';
-        fileName = path.join(process.cwd(),'spec/components/economic/data/20002.pdf');
-        console.log('gonna load sync pdf mock from : %s',fileName);
+        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20002/pdf';
+        fileName = path.join(__dirname, '../data/20002.pdf');
         bookedInvoicePDF2 = fs.readFileSync(fileName,'utf8');
 
-        pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20003/pdf';
-        fileName = path.join(process.cwd(),'spec/components/economic/data/20003.pdf');
-        console.log('gonna load sync pdf mock from : %s',fileName);
+        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20003/pdf';
+        fileName = path.join(__dirname, '../data/20003.pdf');
         bookedInvoicePDF3 = fs.readFileSync(fileName,'utf8');
 
         nock('https://restapi.e-conomic.com')
@@ -76,12 +73,12 @@ describe('e-conomic get booked invoices', function () {
     beforeEach(function(){
         spyOnGetDateNow();
 
-        self = jasmine.createSpyObj('self',['emit']);
+        self = jasmine.createSpyObj('self', ['emit']);
 
         var now = new Date(processTrigger._getDateNow());
         newSnapshot = { lastChecked : now.toISOString() };
 
-        spyOn(messages, 'addS3StreamAttachment').andCallFake(function (msg, fileName) {
+        spyOn(attachments, 'addS3StreamAttachment').andCallFake(function (msg, fileName) {
             var deferred = Q.defer();
 
             msg.attachments[fileName] = {
@@ -89,7 +86,7 @@ describe('e-conomic get booked invoices', function () {
             };
 
             deferred.promise.fail(function(e) {
-                console.log("[mock]Failed to upload file to S3");
+                console.log("[mock] Failed to upload file to S3");
                 console.log(e);
 
                 return deferred.reject(e);
@@ -106,14 +103,13 @@ describe('e-conomic get booked invoices', function () {
         nock('https://restapi.e-conomic.com')
             .get('/invoices/booked?filter=date$gt:'+snapshot.lastChecked+'&pagesize=999')
             .reply(200, allBookedInvoicesInJSON)
-
             .get('/invoices/booked/20003/pdf')
             .reply(200, bookedInvoicePDF3);
 
         nockAllPDF();
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){
@@ -126,10 +122,6 @@ describe('e-conomic get booked invoices', function () {
             var dataIndex1 = 1;
             var dataIndex2 = 3;
             var dataIndex3 = 5;
-
-            //calls.forEach(function(call){
-            //    console.log(call.args[0]);
-            //});
 
             expect(calls.length).toEqual(8); // heartbeat*3 -data*3 - snapshot - end
 
@@ -183,7 +175,7 @@ describe('e-conomic get booked invoices', function () {
             });
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){
@@ -210,7 +202,7 @@ describe('e-conomic get booked invoices', function () {
             .reply(200, allBookedInvoicesInJSON);
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){
@@ -244,7 +236,7 @@ describe('e-conomic get booked invoices', function () {
         cfg.toDownloadPDF = false;
 
         runs(function(){
-            processTrigger.process.call(self, msg, cfg, next, snapshot);
+            processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){

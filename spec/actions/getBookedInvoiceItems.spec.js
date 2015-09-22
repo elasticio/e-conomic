@@ -4,14 +4,13 @@ describe('e-conomic get booked invoice items', function () {
     var bookedInvoiceItemsIn1JSON = require('./../data/booked_invoice_items_in.1.json.js');
     var bookedInvoiceItemsIn2JSON = require('./../data/booked_invoice_items_in.2.json.js');
     var bookedInvoiceItemsOutJSON = require('./../data/booked_invoice_items_out.json.js');
-    var messages = require('../../../../lib/components/messages.js');
-    var processAction = require('../../../../lib/components/economic/lib/actions/getBookedInvoiceItems.js');
+    var messages = require('elasticio-node').messages;
+    var processAction = require('../../lib/actions/getBookedInvoiceItems');
     var moment = require('moment');
     var nock = require('nock');
 
     var msg = messages.newMessageWithBody(bookedInvoiceItemsIn1JSON);
     var cfg = {"accessId": "mraewfJwjUf9HRtjcWoVdqGYEXLqSGJlg_Y78WHwnTg1"};
-    var next = jasmine.createSpy('next');
 
     var self;
 
@@ -70,7 +69,7 @@ describe('e-conomic get booked invoice items', function () {
             });
 
         runs(function(){
-            processAction.process.call(self, msg, cfg, next);
+            processAction.process.call(self, msg, cfg);
         });
 
         waitsFor(function(){

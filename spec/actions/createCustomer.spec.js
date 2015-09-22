@@ -10,8 +10,8 @@ describe('e-conomic create customer action', function() {
     var customer2InJSON = require('./../data/create_customer2_in.json.js');
     var customer2OutJSON = require('./../data/create_customer2_out.json.js');
 
-    var messages = require('../../../../lib/components/messages.js');
-    var processAction = require('../../../../lib/components/economic/lib/actions/createCustomer.js');
+    var messages = require('elasticio-node').messages;
+    var processAction = require('../../lib/actions/createCustomer');
     var nock = require('nock');
 
     var msg = messages.newMessageWithBody(customerInJSON);
@@ -86,7 +86,7 @@ describe('e-conomic create customer action', function() {
             .reply(201, customerOutJSON);
 
         runs(function () {
-            processAction.process.call(self, msg, cfg, null, snapshot);
+            processAction.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function () {

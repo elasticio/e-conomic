@@ -4,7 +4,7 @@ describe('e-conomic getCustomersContacts', function(){
 
     var API_URL = 'https://restapi.e-conomic.com';
 
-    var componentPath = path.join('../../../../lib/components/economic');
+    var componentPath = path.join('../../');
     var processAction = require(path.join(componentPath, 'lib/actions/getCustomersContacts'));
 
     var self;

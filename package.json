@@ -1,0 +1,36 @@
+{
+  "name": "economic",
+  "version": "1.0.0",
+  "description": "elastic.io component that connects to E-conomic API (node.js)",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/jasmine-node/bin/jasmine-node --test-dir spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elasticio/economic.git"
+  },
+  "keywords": [
+    "elasticio",
+    "economic",
+    "REST"
+  ],
+  "author": "elastic.io GmbH",
+  "license": "Proprietary",
+  "bugs": {
+    "url": "https://github.com/elasticio/economic/issues"
+  },
+  "homepage": "https://github.com/elasticio/economic#readme",
+  "dependencies": {
+    "elasticio-node": "git+https://github.com/elasticio/elasticio-node.git",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "q": "^1.4.1",
+    "request": "^2.61.0",
+    "s3": "git+https://elasticiodev:EyJuMIBOLDIEvk5bGOAs7mbaVMoiBz@github.com/elasticio/s3.git"
+  },
+  "devDependencies": {
+    "nock": "0.27.2",
+    "jasmine-node": "~1.7.0"
+  }
+}

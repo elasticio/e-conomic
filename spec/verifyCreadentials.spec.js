@@ -2,7 +2,7 @@ describe('Verify Credentials', function () {
     var nock = require('nock');
     var request = require('request');
 
-    var verify = require('../../../lib/components/economic/verifyCredentials.js');
+    var verify = require('../verifyCredentials');
 
     var cfg;
     var cb;

@@ -1,6 +1,6 @@
 describe('getCustomerGroups dynamic model',function(){
 
-    var commons = require('../../../lib/components/economic/lib/commons/commons.js');
+    var commons = require('../lib/commons/commons.js');
     var nock = require('nock');
 
     var allCustomerGroupsInJSON = require('./data/all_customer_groups_in.json.js');
