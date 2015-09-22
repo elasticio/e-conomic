@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "customerNumber": {
+            "type": "string",
+            "required": true,
+            "title": "Customer Number"
+        }
+    }
+}

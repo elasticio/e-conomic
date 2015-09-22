@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "productNumber": {
+            "title": "Product Number",
+            "type": "string",
+            "required": true
+        },
+        "name": {
+            "title": "Name",
+            "type": "string",
+            "required": true
+        },
+        "costPrice": {
+            "title": "Cost",
+            "type": "string",
+            "required": true
+        },
+        "recommendedPrice": {
+            "title": "Recommended Price",
+            "type": "number",
+            "required": true
+        },
+        "salesPrice": {
+            "title": "Sales Price",
+            "type": "number",
+            "required": true
+        },
+        "barred": {
+            "title": "Barred",
+            "type": "boolean",
+            "required": true
+        },
+        "packageVolume": {
+            "title": "Package Volume",
+            "type": "number",
+            "required": true
+        },
+        "lastUpdated": {
+            "title": "Last Updated",
+            "type": "string",
+            "required": true
+        },
+        "productGroup": {
+            "type": "object",
+            "properties": {
+                "productGroupNumber": {
+                    "title": "Product Group Number",
+                    "type": "string",
+                    "required": true
+                },
+                "name": {
+                    "title": "Product Group Name",
+                    "type": "string",
+                    "required": true
+                }
+            }
+
+        }
+    }
+}

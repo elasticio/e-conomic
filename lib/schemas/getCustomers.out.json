@@ -1,0 +1,73 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "required": true,
+      "properties": {
+        "customerNumber": {
+          "type": "string",
+          "required": true,
+          "title": "Identifier"
+        },
+        "name": {
+          "type": "string",
+          "required": true,
+          "title": "Name"
+        },
+        "vatZone": {
+          "type": "string",
+          "required": true,
+          "title": "VAT zone",
+          "enum": ["HomeCountry", "EU", "Abroad"]
+        },
+        "currency": {
+          "type": "string",
+          "required": true,
+          "title": "Currency",
+          "enum": ["AED", "ARS", "AUD", "BGN", "BRL", "CAD", "CDF", "CFA", "CHF", "CLP", "CNY", "COP", "CRC", "CYP", "CZK", "DKK", "DZD", "EEK", "EGP", "ETB", "EUR", "GBP", "GHS", "GMD", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "IQD", "ISK", "JPY", "KES", "KRW", "KWD", "LTL", "LVL", "MAD", "MDL", "MTL", "MUR", "MWK", "MXN", "MYR", "MZN", "NGN", "NOK", "NZD", "OMR", "PHP", "PKR", "PLN", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SCR", "SDG", "SEK", "SGD", "SIT", "SKK", "SSP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "VND", "XCD", "XOF", "XPF", "ZAR", "ZMK", "ZMW"]
+        },
+        "email": {
+          "type": "string",
+          "required": false,
+          "title": "E-mail"
+        },
+        "country": {
+          "type": "string",
+          "required": false,
+          "title": "Country"
+        },
+        "zip": {
+          "type": "string",
+          "required": false,
+          "title": "ZIP"
+        },
+        "city": {
+          "type": "string",
+          "required": false,
+          "title": "City"
+        },
+        "address": {
+          "type": "string",
+          "required": false,
+          "title": "Address"
+        },
+        "telephoneAndFaxNumber": {
+          "type": "string",
+          "required": false,
+          "title": "Phone / Fax"
+        },
+        "vatNumber": {
+          "type": "string",
+          "required": false,
+          "title": "VAT number"
+        },
+        "website": {
+          "type": "string",
+          "required": false,
+          "title": "Website"
+        }
+      }
+    }
+  }
+}

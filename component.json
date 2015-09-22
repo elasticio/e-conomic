@@ -1,0 +1,152 @@
+{
+    "title": "e-conomic",
+    "description": "e-conomic REST API",
+    "url": "https://restapi.e-conomic.com/",
+    "vars": ["ECONOMIC_PUBLIC_APP_ID"],
+    "credentials": {
+        "fields": {
+            "accessId": {
+                "viewClass": "TextFieldWithNoteView",
+                "label": "Your AccessID",
+                "required": true,
+                "placeholder": "Paste your AccessID here",
+                "note": "Get AccessID by following the link <a href='https://secure.e-conomic.com/secure/api1/requestaccess.aspx?appId={{ECONOMIC_PUBLIC_APP_ID}}' target='_blank'>here</a>"
+            }
+        }
+    },
+    "triggers": {
+        "getBookedInvoices": {
+            "main": "./lib/triggers/getBookedInvoices.js",
+            "type": "polling",
+            "title": "Query Booked Invoices(beta)",
+            "fields": {
+                "toDownloadPDF": {
+                    "viewClass" : "CheckBoxView",
+                    "label" : "Download PDF",
+                    "required" : false
+                }
+            },
+            "metadata": {
+                "out": "./lib/schemas/getBookedInvoices.out.json"
+            }
+        },
+        "getCustomers": {
+            "main": "./lib/triggers/getCustomers.js",
+            "type": "polling",
+            "title": "Query Customers",
+            "metadata": {
+                "out": "./lib/schemas/getCustomers.out.json"
+            }
+        }
+    },
+    "actions": {
+        "createCustomer": {
+            "main": "./lib/actions/createCustomer.js",
+            "title": "Create Customer",
+            "fields": {
+                "customerGroupId":{
+                    "viewClass":"SelectView",
+                    "prompt":"Please select",
+                    "label":"Customer group",
+                    "required":true,
+                    "model" : "getCustomerGroups"
+                },
+                "paymentTermId":{
+                    "viewClass":"SelectView",
+                    "prompt":"Please select",
+                    "label":"Payment term",
+                    "required":true,
+                    "model" : "getPaymentTerms"
+                },
+                "vatZoneId":{
+                    "viewClass":"SelectView",
+                    "prompt":"Please select",
+                    "label":"VAT zone",
+                    "required":true,
+                    "model" : "getVatZones"
+                },
+                "currency": {
+                    "viewClass":"SelectView",
+                    "prompt":"Please select",
+                    "required": true,
+                    "label": "Default Currency",
+                    "model": ["AED", "ARS", "AUD", "BGN", "BRL", "CAD", "CDF", "CFA", "CHF", "CLP", "CNY", "COP", "CRC", "CYP", "CZK", "DKK", "DZD", "EEK", "EGP", "ETB", "EUR", "GBP", "GHS", "GMD", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "IQD", "ISK", "JPY", "KES", "KRW", "KWD", "LTL", "LVL", "MAD", "MDL", "MTL", "MUR", "MWK", "MXN", "MYR", "MZN", "NGN", "NOK", "NZD", "OMR", "PHP", "PKR", "PLN", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SCR", "SDG", "SEK", "SGD", "SIT", "SKK", "SSP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "VND", "XCD", "XOF", "XPF", "ZAR", "ZMK", "ZMW"]
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/createCustomer.in.json"
+            }
+        },
+        "getBookedInvoiceItems": {
+            "main": "./lib/actions/getBookedInvoiceItems.js",
+            "title": "Query Booked Invoice Items",
+            "metadata": {
+                "in":  "./lib/schemas/getBookedInvoiceItems.in.json",
+                "out": "./lib/schemas/getBookedInvoiceItems.out.json"
+            }
+        },
+        "getCustomersContacts": {
+            "main": "./lib/actions/getCustomersContacts.js",
+            "title": "Query Customer's Contacts",
+            "metadata": {
+                "in":  "./lib/schemas/getCustomersContacts.in.json",
+                "out": "./lib/schemas/getCustomersContacts.out.json"
+            }
+        },
+        "createProduct": {
+            "main": "./lib/actions/createProduct.js",
+            "title": "Create Product",
+            "metadata": {
+                "in": "./lib/schemas/createProduct.in.json",
+                "out": "./lib/schemas/createProduct.out.json"
+            },
+            "fields": {
+                "productGroupNumber": {
+                    "viewClass": "SelectView",
+                    "prompt": "Please select",
+                    "label": "Default Product Group",
+                    "required": false,
+                    "model": "getProductGroups"
+                }
+            }
+        },
+        "createInvoice": {
+            "main": "./lib/actions/createInvoice.js",
+            "title": "Create Draft Invoice",
+            "metadata": {
+                "in": "./lib/schemas/createInvoice.in.json",
+                "out": "./lib/schemas/createInvoice.out.json"
+            },
+            "fields": {
+                "customerGroupId": {
+                    "viewClass": "SelectView",
+                    "prompt": "Please select",
+                    "label": "Customer group",
+                    "required": false,
+                    "model": "getCustomerGroups"
+                },
+                "paymentTermId": {
+                    "viewClass": "SelectView",
+                    "prompt": "Please select",
+                    "label": "Customer payment term",
+                    "required": false,
+                    "model": "getPaymentTerms"
+                },
+                "vatZoneId": {
+                    "viewClass": "SelectView",
+                    "prompt": "Please select",
+                    "label": "Customer VAT zone",
+                    "required": false,
+                    "model": "getVatZones"
+                },
+                "currency": {
+                    "viewClass": "SelectView",
+                    "prompt": "Please select",
+                    "required": false,
+                    "label": "Default currency",
+                    "model": ["AED", "ARS", "AUD", "BGN", "BRL", "CAD", "CDF", "CFA", "CHF", "CLP", "CNY", "COP", "CRC", "CYP", "CZK", "DKK", "DZD", "EEK", "EGP", "ETB", "EUR", "GBP", "GHS", "GMD", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "IQD", "ISK", "JPY", "KES", "KRW", "KWD", "LTL", "LVL", "MAD", "MDL", "MTL", "MUR", "MWK", "MXN", "MYR", "MZN", "NGN", "NOK", "NZD", "OMR", "PHP", "PKR", "PLN", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SCR", "SDG", "SEK", "SGD", "SIT", "SKK", "SSP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "VND", "XCD", "XOF", "XPF", "ZAR", "ZMK", "ZMW"]
+                }
+            }
+        }
+    }
+}

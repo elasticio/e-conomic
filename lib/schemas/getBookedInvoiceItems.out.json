@@ -1,0 +1,355 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "number",
+            "required": true,
+            "title": "ID"
+        },
+        "orderId": {
+            "type": "number",
+            "required": true,
+            "title": "Order ID"
+        },
+        "remainder": {
+            "type": "number",
+            "required": false,
+            "title": "Remainder"
+        },
+        "remainderBaseCurrency": {
+            "type": "number",
+            "required": false,
+            "title": "Remainder Base Currency"
+        },
+        "netAmountBaseCurrency": {
+            "type": "number",
+            "required": true,
+            "title": "Net Amount Base Currency"
+        },
+        "customer": {
+            "type": "object",
+            "required": true,
+            "properties": {
+                "customerNumber": {
+                    "type": "number",
+                    "required": true,
+                    "title": "Customer Number"
+                },
+                "name": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Name"
+                },
+                "currency": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Currency"
+                },
+                "paymentTermsNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Payment Terms Number"
+                },
+                "customerGroupNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Group Number"
+                },
+                "address": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Address"
+                },
+                "balance": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Balance"
+                },
+                "zip": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Postal Code"
+                },
+                "country": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Country"
+                },
+                "city": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer City"
+                },
+                "county": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer County"
+                },
+                "email": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Email"
+                },
+                "vatZoneNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer VAT Zone Number"
+                },
+                "lastUpdated": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Last Updated Date"
+                }
+            }
+        },
+        "date": {
+            "type": "string",
+            "required": true,
+            "title": "Date"
+        },
+        "month": {
+            "type": "string",
+            "required": true,
+            "title": "Creation Month"
+        },
+        "year": {
+            "type": "string",
+            "required": true,
+            "title": "Creation Year"
+        },
+        "dueDate": {
+            "type": "string",
+            "required": true,
+            "title": "Due Date"
+        },
+        "dueDateTimestamp": {
+            "type": "number",
+            "required": true,
+            "title": "Due Date Timestamp"
+        },
+        "paymentTermsNumber": {
+            "type": "number",
+            "required": true,
+            "title": "Payment Terms Number"
+        },
+        "currency": {
+            "type": "string",
+            "required": true,
+            "title": "Currency"
+        },
+        "vatIncluded": {
+            "type": "boolean",
+            "required": true,
+            "title": "VAT included"
+        },
+        "deliveryAddress": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Address"
+        },
+        "deliveryPostalCode": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Postal Code"
+        },
+        "deliveryCity": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery City"
+        },
+        "heading": {
+            "type": "string",
+            "required": false,
+            "title": "Heading"
+        },
+        "netAmount": {
+            "type": "number",
+            "required": true,
+            "title": "Net Amount"
+        },
+        "grossAmount": {
+            "type": "number",
+            "required": true,
+            "title": "Gross Amount"
+        },
+        "vatAmount": {
+            "type": "number",
+            "required": false,
+            "title": "VAT Amount"
+        },
+        "roundingAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Rounding Amount"
+        },
+        "deductionAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Deduction Amount"
+        },
+        "pdf": {
+            "type": "string",
+            "required": false,
+            "title": "PDF"
+        },
+        "lines": {
+            "type": "array",
+            "required": false,
+            "properties": {
+                "vatRate": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line VAT Rate"
+                },
+                "vatAmount": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line VAT amount"
+                },
+                "description": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Line Description"
+                },
+                "unit": {
+                    "type": "object",
+                    "required": false,
+                    "properties": {
+                        "unitNumber": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Unit Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Unit Name"
+                        }
+                    }
+                },
+                "lineNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Number"
+                },
+                "quantity": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Quantity"
+                },
+                "unitPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Unit Price"
+                },
+                "unitNetPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Unit Net Price"
+                },
+                "unitCostPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Unit Cost Price"
+                },
+                "discountPercentage": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Discount Percentage"
+                },
+                "totalNetAmount": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Total Net Amount"
+                },
+                "totalGrossAmount": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Total Gross Amount"
+                },
+                "product": {
+                    "type": "object",
+                    "required": false,
+                    "properties": {
+                        "productNumber": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Product Unit Name"
+                        },
+                        "costPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Cost Price"
+                        },
+                        "recommendedPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Recommended Price"
+                        },
+                        "salesPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Sales Price"
+                        },
+                        "packageVolume": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Package Volume"
+                        },
+                        "lastUpdated": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Product Last Updated"
+                        },
+                        "productGroupId": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Group Id"
+                        },
+                        "unit": {
+                            "type": "object",
+                            "required": false,
+                            "properties": {
+                                "unitNumber": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Line Product Unit Number"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Line Product Unit Name"
+                                }
+                            }
+                        },
+                        "amountAvailable": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Amount Available"
+                        },
+                        "amountInStock": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Amount In Stock"
+                        },
+                        "amountOrderedFromSuppliers": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Amount Ordered From Suppliers"
+                        },
+                        "amountOrderedByCustomers": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Amount Ordered By Customers"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

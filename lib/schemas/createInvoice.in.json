@@ -1,0 +1,343 @@
+{
+    "type": "object",
+    "properties": {
+        "heading": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice References, Heading"
+        },
+        "textLine1": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice References, Text 1",
+            "maxLength": 1000
+        },
+        "textLine2": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice References, Text 2",
+            "maxLength": 1000
+        },
+        "otherReference": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice References, Other Reference"
+        },
+        "date": {
+            "type": "string",
+            "required": true,
+            "title": "Invoice Date"
+        },
+        "dueDate": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice Due Date"
+        },
+        "currency": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice Currency"
+        },
+        "netAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Net Amount"
+        },
+        "grossAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Gross Amount"
+        },
+        "vatIncluded": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice Vat Included",
+            "enum": [
+                "true", "false"
+            ]
+        },
+        "vatAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Vat Amount"
+        },
+        "externalId": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice External ID"
+        },
+        "customer": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "required": true,
+                    "title": "Customer Name"
+                },
+                "email": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer E-mail"
+                },
+                "country": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Country"
+                },
+                "county": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer County"
+                },
+                "zip": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer ZIP"
+                },
+                "city": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer City"
+                },
+                "address": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Address",
+                    "maxLength": 1000
+                },
+                "telephoneAndFaxNumber": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Phone / Fax"
+                },
+                "vatNumber": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer VAT number"
+                },
+                "website": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer Website"
+                },
+                "externalId": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Customer External ID(for updating)"
+                },
+                "customerNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Number"
+                },
+                "currency": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Currency"
+                }
+            }
+        },
+        "deliveryAddress": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Address",
+            "maxLength": 1000
+        },
+        "deliveryPostalCode": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Postal Code"
+        },
+        "deliveryCity": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery City"
+        },
+        "deliveryCountry": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Country"
+        },
+        "deliveryCounty": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery County"
+        },
+        "deliveryTerms": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Terms",
+            "maxLength": 1000
+        },
+        "deliveryDate": {
+            "type": "string",
+            "required": false,
+            "title": "Delivery Date"
+        },
+        "lines": {
+            "type": "array",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Line Description"
+                },
+                "unit": {
+                    "type": "object",
+                    "properties": {
+                        "unitNumber": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Unit Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Unit Name"
+                        }
+                    }
+                },
+                "unitNetPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Unit Price"
+                },
+                "quantity": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Quantity"
+                },
+                "discountPercentage": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Discount Percentage"
+                },
+                "product": {
+                    "type": "object",
+                    "properties": {
+                        "productNumber": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Product Unique Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Line Product Name"
+                        },
+                        "costPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Cost"
+                        },
+                        "recommendedPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Recommended Price"
+                        },
+                        "salesPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Sales Price"
+                        },
+                        "packageVolume": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Line Product Package Volume"
+                        },
+                        "productGroup": {
+                            "type": "object",
+                            "properties": {
+                                "productGroupNumber": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Line Product Group Number"
+                                }
+                            }
+                        },
+                        "unit": {
+                            "type": "object",
+                            "properties": {
+                                "unitNumber": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Line Product Unit Number"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Line Product Unit Name"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "attention": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Attention"
+        },
+        "currencyExchangeRate": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Currency Exchange Rate"
+        },
+        "margin": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Margin"
+        },
+        "marginPercentage": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Margin Percentage"
+        },
+        "paymentTerms": {
+            "type": "object",
+            "properties": {
+                "paymentTermsNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Invoice Payment Terms Number"
+                },
+                "self": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Invoice Payment Terms Self"
+                }
+            }
+        },
+        "layout": {
+            "type": "object",
+            "properties": {
+                "layoutNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Invoice Layout Number"
+                }
+            }
+        },
+        "netAmountBaseCurrency": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Net Amount Base Currency"
+        },
+        "roundingAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Rounding Amount"
+        },
+        "deductionAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Invoice Deduction Amount"
+        },
+        "salesDocumentType": {
+            "type": "string",
+            "required": false,
+            "title": "Invoice Sales Document Type"
+        }
+    }
+}

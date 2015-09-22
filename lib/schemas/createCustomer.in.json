@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": true,
+            "title": "Name"
+        },
+        "email": {
+            "type": "string",
+            "required": false,
+            "title": "E-mail"
+        },
+        "country": {
+            "type": "string",
+            "required": false,
+            "title": "Country"
+        },
+        "county": {
+            "type": "string",
+            "required": false,
+            "title": "County/Region"
+        },
+        "zip": {
+            "type": "string",
+            "required": false,
+            "title": "ZIP"
+        },
+        "city": {
+            "type": "string",
+            "required": false,
+            "title": "City"
+        },
+        "address": {
+            "type": "string",
+            "required": false,
+            "title": "Address",
+            "maxLength": 1000
+        },
+        "telephoneAndFaxNumber": {
+            "type": "string",
+            "required": false,
+            "title": "Phone / Fax"
+        },
+        "vatNumber": {
+            "type": "string",
+            "required": false,
+            "title": "VAT number"
+        },
+        "website": {
+            "type": "string",
+            "required": false,
+            "title": "Website"
+        },
+        "externalId": {
+            "type": "string",
+            "required": false,
+            "title": "Customer External ID"
+        },
+        "currency": {
+            "type": "string",
+            "required": false,
+            "title": "Customer Currency"
+        }
+    }
+}

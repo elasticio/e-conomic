@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "contacts": {
+            "type": "array",
+            "required": true,
+            "properties": {
+                "customerNumber": {
+                    "type": "string",
+                    "required": true,
+                    "title": "Customer Number"
+                },
+                "customerContactNumber": {
+                    "type": "string",
+                    "required": true,
+                    "title": "Customer Contact Number"
+                },
+                "name": {
+                    "type": "string",
+                    "required": true,
+                    "title": "Name"
+                },
+                "email": {
+                    "type": "string",
+                    "required": false,
+                    "title": "E-mail"
+                },
+                "eInvoiceId": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Electronic invoicing Id"
+                },
+                "notes": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Notes"
+                },
+                "phone": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Phone"
+                }
+            }
+        }
+    }
+}

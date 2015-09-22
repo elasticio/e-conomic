@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "productNumber": {
+            "title": "Product Unique Number",
+            "type": "string",
+            "required": true,
+            "maxLength": 25
+        },
+        "name": {
+            "title": "Product Name",
+            "type": "string",
+            "required": true,
+            "maxLength": 300
+        },
+        "productGroup": {
+            "type": "object",
+            "properties": {
+                "productGroupNumber" : {
+                    "title": "Product Group Number",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        },
+        "costPrice": {
+            "title": "Cost",
+            "type": "number",
+            "required": false
+        },
+        "recommendedPrice": {
+            "title": "Recommended Price",
+            "type": "number",
+            "required": false
+        },
+        "salesPrice": {
+            "title": "Sales Price",
+            "type": "number",
+            "required": false
+        }
+    }
+}

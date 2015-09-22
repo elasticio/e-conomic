@@ -1,0 +1,385 @@
+{
+    "type": "object",
+    "properties": {
+        "lastUpdated": {
+            "type": "string",
+            "required": false,
+            "title": "Last Updated"
+        },
+        "lines": {
+            "type": "array",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Description"
+                },
+                "unit": {
+                    "type": "object",
+                    "properties": {
+                        "unitNumber": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Unit Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Name"
+                        }
+                    }
+                },
+                "lineNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Line Number"
+                },
+                "quantity": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Quantity"
+                },
+                "unitPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Unit Price"
+                },
+                "unitNetPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Unit Net Price"
+                },
+                "unitCostPrice": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Unit Cost Price"
+                },
+                "discountPercentage": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Discount Percentage"
+                },
+                "totalNetAmount": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Total Net Amount"
+                },
+                "product": {
+                    "type": "object",
+                    "properties": {
+                        "productNumber": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Product Number"
+                        },
+                        "name": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Name"
+                        },
+                        "costPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Cost Price"
+                        },
+                        "recommendedPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Recommended Price"
+                        },
+                        "salesPrice": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Sales Price"
+                        },
+                        "packageVolume": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Package Volume"
+                        },
+                        "lastUpdated": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Last Updated"
+                        },
+                        "productGroupId": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Product Group Id"
+                        },
+                        "unit": {
+                            "type": "object",
+                            "properties": {
+                                "unitNumber": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Unit Number"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Name"
+                                }
+                            }
+                        },
+                        "amountAvailable": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Amount Available"
+                        },
+                        "amountInStock": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Amount In Stock"
+                        },
+                        "amountOrderedFromSuppliers": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Amount Ordered From Suppliers"
+                        },
+                        "amountOrderedByCustomers": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Amount Ordered By Customers"
+                        }
+                    }
+                }
+            }
+        },
+        "currencyExchangeRate": {
+            "type": "number",
+            "required": false,
+            "title": "Currency Exchange Rate"
+        },
+        "margin": {
+            "type": "number",
+            "required": false,
+            "title": "Margin"
+        },
+        "marginPercentage": {
+            "type": "number",
+            "required": false,
+            "title": "Margin Percentage"
+        },
+        "id": {
+            "type": "number",
+            "required": true,
+            "title": "Id"
+        },
+        "customer": {
+            "type": "object",
+            "properties": {
+                "customerNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Customer Number"
+                },
+                "self": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Self"
+                }
+            }
+        },
+        "customerName": {
+            "type": "string",
+            "required": false,
+            "title": "Customer Name"
+        },
+        "date": {
+            "type": "string",
+            "required": false,
+            "title": "Date"
+        },
+        "dueDate": {
+            "type": "string",
+            "required": false,
+            "title": "Due Date"
+        },
+        "paymentTerms": {
+            "type": "object",
+            "properties": {
+                "paymentTermsNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Payment Terms Number"
+                },
+                "self": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Self"
+                }
+            }
+        },
+        "currency": {
+            "type": "string",
+            "required": false,
+            "title": "Currency"
+        },
+        "vatIncluded": {
+            "type": "boolean",
+            "required": false,
+            "title": "Vat Included"
+        },
+        "layout": {
+            "type": "object",
+            "properties": {
+                "layoutNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Layout Number"
+                }
+            }
+        },
+        "netAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Net Amount"
+        },
+        "netAmountBaseCurrency": {
+            "type": "number",
+            "required": false,
+            "title": "Net Amount Base Currency"
+        },
+        "grossAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Gross Amount"
+        },
+        "vatAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Vat Amount"
+        },
+        "roundingAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Rounding Amount"
+        },
+        "deductionAmount": {
+            "type": "number",
+            "required": false,
+            "title": "Deduction Amount"
+        },
+        "pdf": {
+            "type": "string",
+            "required": false,
+            "title": "Pdf"
+        },
+        "salesDocumentType": {
+            "type": "string",
+            "required": false,
+            "title": "Sales Document Type"
+        },
+        "self": {
+            "type": "string",
+            "required": false,
+            "title": "Self"
+        },
+        "metaData": {
+            "type": "object",
+            "properties": {
+                "book": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "href": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Href"
+                        },
+                        "httpMethod": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Http Method"
+                        }
+                    }
+                },
+                "bookWithNumber": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "href": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Href"
+                        },
+                        "httpMethod": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Http Method"
+                        }
+                    }
+                },
+                "delete": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "href": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Href"
+                        },
+                        "httpMethod": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Http Method"
+                        }
+                    }
+                },
+                "replace": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "href": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Href"
+                        },
+                        "httpMethod": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Http Method"
+                        }
+                    }
+                },
+                "update": {
+                    "type": "object",
+                    "properties": {
+                        "description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "href": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Href"
+                        },
+                        "httpMethod": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Http Method"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

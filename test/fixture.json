@@ -1,0 +1,47 @@
+{
+    "fixtures": {
+        "create": {
+            "cfg": {
+                "accessId": "{{economic_access_id}}",
+                "test": true
+            },
+            "msg": {
+                "body": {
+                    "customerGroupNumber": 1,
+                    "name": "Customer #1",
+                    "vatZone": "Abroad",
+                    "paymentTermsNumber": 3,
+                    "currency": "GBP",
+                    "email": "test@elastic.io",
+                    "country": "Country",
+                    "county": "County",
+                    "zip": "ZIP",
+                    "city": "City",
+                    "address": "Address",
+                    "telephoneAndFaxNumber": "Phone / Fax",
+                    "ciNumber": "Company registration number",
+                    "vatNumber": "VAT number",
+                    "website": "http://elastic.io"
+                }
+            }
+        },
+        "get": {
+            "cfg": {
+                "accessId": "{{economic_access_id}}",
+                "test": true
+            }
+        },
+        "getBookedInvoice" : {
+            "cfg": {
+                "accessId": "{{economic_access_id}}",
+                "test": true
+            },
+            "msg": {
+                "body": {}
+            },
+            "snapshot": {
+                "lastChecked" : "2014-11-05Z"
+            }
+        }
+    }
+}
