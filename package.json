@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elasticio/economic.git"
+    "url": "git+https://github.com/elasticio/e-conomic.git"
   },
   "keywords": [
     "elasticio",
@@ -18,9 +18,9 @@
   "author": "elastic.io GmbH",
   "license": "Proprietary",
   "bugs": {
-    "url": "https://github.com/elasticio/economic/issues"
+    "url": "https://github.com/elasticio/e-conomic/issues"
   },
-  "homepage": "https://github.com/elasticio/economic#readme",
+  "homepage": "https://github.com/elasticio/e-conomic#readme",
   "dependencies": {
     "elasticio-node": "git+https://github.com/elasticio/elasticio-node.git",
     "lodash": "3.10.1",
