@@ -6,7 +6,8 @@ describe('e-conomic get booked invoices', function () {
     var bookedInvoiceOut1JSON = require('./../data/booked_invoice_out.1.json.js');
     var bookedInvoiceOut2JSON = require('./../data/booked_invoice_out.2.json.js');
     var bookedInvoiceOut3JSON = require('./../data/booked_invoice_out.3.json.js');
-    var messages = require('elasticio-node').messages;
+    var elastic = require('elasticio-node');
+    var messages = elastic.messages;
     var attachments = require('../../lib/attachments');
     var processTrigger = require('../../lib/triggers/getBookedInvoices');
     var moment = require('moment');
