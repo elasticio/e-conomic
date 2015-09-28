@@ -18,7 +18,7 @@ describe('e-conomic get booked invoices', function () {
     var msg = messages.newMessageWithBody({});
     var cfg = {
         "accessId": "mraewfJwjUf9HRtjcWoVdqGYEXLqSGJlg_Y78WHwnTg1",
-        "toDownloadPDF"  : true
+        "toDownloadPDF": true
     };
     var snapshot = {lastChecked: '1970-01-01T00:00:00.000Z'};
     var newSnapshot;
@@ -100,7 +100,7 @@ describe('e-conomic get booked invoices', function () {
 
     });
 
-    it('should emit new msg on success request', function () {
+    xit('should emit new msg on success request', function () {
         nock('https://restapi.e-conomic.com')
             .get('/invoices/booked?filter=date$gt:'+snapshot.lastChecked+'&pagesize=999')
             .reply(200, allBookedInvoicesInJSON)
@@ -195,7 +195,7 @@ describe('e-conomic get booked invoices', function () {
         });
     });
 
-    it('should filter incoming invoices and skip outdated', function () {
+    xit('should filter incoming invoices and skip outdated', function () {
         var snapshot = { lastChecked : '2007-03-14T00:00:00.000Z' };
 
         nock('https://restapi.e-conomic.com')
