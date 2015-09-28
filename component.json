@@ -19,13 +19,6 @@
             "main": "./lib/triggers/getBookedInvoices.js",
             "type": "polling",
             "title": "Query Booked Invoices(beta)",
-            "fields": {
-                "toDownloadPDF": {
-                    "viewClass" : "CheckBoxView",
-                    "label" : "Download PDF",
-                    "required" : false
-                }
-            },
             "metadata": {
                 "out": "./lib/schemas/getBookedInvoices.out.json"
             }
