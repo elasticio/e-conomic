@@ -8,7 +8,6 @@ describe('e-conomic get booked invoices', function () {
     var bookedInvoiceOut3JSON = require('./../data/booked_invoice_out.3.json.js');
     var elastic = require('elasticio-node');
     var messages = elastic.messages;
-    var attachments = require('../../lib/attachments');
     var processTrigger = require('../../lib/triggers/getBookedInvoices');
     var moment = require('moment');
     var nock = require('nock');
@@ -23,19 +22,7 @@ describe('e-conomic get booked invoices', function () {
     var snapshot = {lastChecked: '1970-01-01T00:00:00.000Z'};
     var newSnapshot;
 
-    process.env.S3_SECRET = process.env.S3_SECRET || 'my-secret';
-    process.env.S3_KEY = process.env.S3_KEY       || 'my-key';
-    process.env.S3_REGION = process.env.S3_REGION || 'eu-west-1';
-    process.env.S3_BUCKET = process.env.S3_BUCKET || 'my-bucket';
-    process.env.S3_CRYPTO_PASSWORD = 'chick-chick';
-    process.env.S3_CRYPTO_ALGORITHM = 'aes-256-cbc';
-    var s3 = require('s3').getClient(process.env.S3_BUCKET);
-
     var self;
-
-    var bookedInvoicePDF1;
-    var bookedInvoicePDF2;
-    var bookedInvoicePDF3;
 
     function spyOnGetDateNow(date){
         var nowDate = date || 1412197200000; // 02-10-2014
@@ -43,31 +30,6 @@ describe('e-conomic get booked invoices', function () {
         spyOn(processTrigger,'_getDateNow').andCallFake(function(){
             return fakeNow;
         });
-    }
-
-    function nockAllPDF(){
-        //var pdfURL;
-        var fileName;
-
-        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20001/pdf';
-        fileName = path.join(__dirname, '../data/20001.pdf');
-        bookedInvoicePDF1 = fs.readFileSync(fileName, 'utf8');
-
-        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20002/pdf';
-        fileName = path.join(__dirname, '../data/20002.pdf');
-        bookedInvoicePDF2 = fs.readFileSync(fileName,'utf8');
-
-        //pdfURL = 'https://restapi.e-conomic.com/invoices/booked/20003/pdf';
-        fileName = path.join(__dirname, '../data/20003.pdf');
-        bookedInvoicePDF3 = fs.readFileSync(fileName,'utf8');
-
-        nock('https://restapi.e-conomic.com')
-            .get('/invoices/booked/20001/pdf')
-            .reply(200, bookedInvoicePDF1)
-            .get('/invoices/booked/20002/pdf')
-            .reply(200, bookedInvoicePDF2)
-            .get('/invoices/booked/20003/pdf')
-            .reply(200, bookedInvoicePDF3);
     }
 
 
@@ -79,85 +41,48 @@ describe('e-conomic get booked invoices', function () {
         var now = new Date(processTrigger._getDateNow());
         newSnapshot = { lastChecked : now.toISOString() };
 
-        spyOn(attachments, 'addS3StreamAttachment').andCallFake(function (msg, fileName) {
-            var deferred = Q.defer();
-
-            msg.attachments[fileName] = {
-                s3: 'path/on/s3/' + fileName
-            };
-
-            deferred.promise.fail(function(e) {
-                console.log("[mock] Failed to upload file to S3");
-                console.log(e);
-
-                return deferred.reject(e);
-            });
-
-            deferred.resolve();
-
-            return deferred.promise;
-        });
-
     });
 
-    xit('should emit new msg on success request', function () {
+    it('should emit new msg on success request', function () {
         nock('https://restapi.e-conomic.com')
             .get('/invoices/booked?filter=date$gt:'+snapshot.lastChecked+'&pagesize=999')
-            .reply(200, allBookedInvoicesInJSON)
-            .get('/invoices/booked/20003/pdf')
-            .reply(200, bookedInvoicePDF3);
-
-        nockAllPDF();
+            .reply(200, allBookedInvoicesInJSON);
 
         runs(function(){
             processTrigger.process.call(self, msg, cfg, snapshot);
         });
 
         waitsFor(function(){
-            return self.emit.calls.length >= 8;
+            console.log(self.emit.calls.length);
+            return self.emit.calls.length >= 5;
         });
 
         runs(function(){
             var calls = self.emit.calls;
             var keys;
-            var dataIndex1 = 1;
-            var dataIndex2 = 3;
-            var dataIndex3 = 5;
+            var dataIndex1 = 0;
+            var dataIndex2 = 1;
+            var dataIndex3 = 2;
 
-            expect(calls.length).toEqual(8); // heartbeat*3 -data*3 - snapshot - end
+            expect(calls.length).toEqual(5); // heartbeat*3 -data*3 - snapshot - end
 
             //invoice #1.idx3
             expect(calls[dataIndex1].args[0]).toEqual('data');
             expect(calls[dataIndex1].args[1].body).toEqual(bookedInvoiceOut1JSON);
 
-            keys = _.keys(calls[dataIndex1].args[1].attachments);
-            expect(keys[0]).toEqual('booked-invoice-20001.pdf');
-            keys = _.keys(calls[dataIndex1].args[1].attachments[keys[0]]);
-            expect(keys[0]).toEqual('s3');
-
             //invoice #2.idx4
             expect(calls[dataIndex2].args[0]).toEqual('data');
             expect(calls[dataIndex2].args[1].body).toEqual(bookedInvoiceOut2JSON);
-
-            keys = _.keys(calls[dataIndex2].args[1].attachments);
-            expect(keys[0]).toEqual('booked-invoice-20002.pdf');
-            keys = _.keys(calls[dataIndex2].args[1].attachments[keys[0]]);
-            expect(keys[0]).toEqual('s3');
 
             //invoice #3.idx5
             expect(calls[dataIndex3].args[0]).toEqual('data');
             expect(calls[dataIndex3].args[1].body).toEqual(bookedInvoiceOut3JSON);
 
-            keys = _.keys(calls[dataIndex3].args[1].attachments);
-            expect(keys[0]).toEqual('booked-invoice-20003.pdf');
-            keys = _.keys(calls[dataIndex3].args[1].attachments[keys[0]]);
-            expect(keys[0]).toEqual('s3');
-
             // snapshot
-            expect(calls[6].args[0]).toEqual('snapshot');
-            expect(calls[6].args[1]).toEqual(newSnapshot);
+            expect(calls[3].args[0]).toEqual('snapshot');
+            expect(calls[3].args[1]).toEqual(newSnapshot);
 
-            expect(calls[7].args).toEqual(['end']);
+            expect(calls[4].args).toEqual(['end']);
 
         });
 
@@ -224,53 +149,6 @@ describe('e-conomic get booked invoices', function () {
             expect(calls[2].args[1]).toEqual(newSnapshot);
 
             expect(calls[3].args).toEqual(['end']);
-
-        });
-
-    });
-
-    it('should not download PDF if flag is not set', function () {
-        nock('https://restapi.e-conomic.com')
-            .get('/invoices/booked?filter=date$gt:'+snapshot.lastChecked+'&pagesize=999')
-            .reply(200, allBookedInvoicesInJSON);
-
-        cfg.toDownloadPDF = false;
-
-        runs(function(){
-            processTrigger.process.call(self, msg, cfg, snapshot);
-        });
-
-        waitsFor(function(){
-            return self.emit.calls.length;
-        });
-
-        runs(function(){
-            var calls = self.emit.calls;
-            var keys;
-
-            expect(calls.length).toEqual(5); // data*3 - snapshot - end
-
-            //invoice #1.idx3
-            expect(calls[0].args[0]).toEqual('data');
-            expect(calls[0].args[1].body).toEqual(bookedInvoiceOut1JSON);
-            expect(calls[0].args[1].attachments).toEqual({});
-
-            //invoice #2.idx4
-            expect(calls[1].args[0]).toEqual('data');
-            expect(calls[1].args[1].body).toEqual(bookedInvoiceOut2JSON);
-            expect(calls[1].args[1].attachments).toEqual({});
-
-
-            //invoice #3.idx5
-            expect(calls[2].args[0]).toEqual('data');
-            expect(calls[2].args[1].body).toEqual(bookedInvoiceOut3JSON);
-            expect(calls[2].args[1].attachments).toEqual({});
-
-            // snapshot
-            expect(calls[3].args[0]).toEqual('snapshot');
-            expect(calls[3].args[1]).toEqual(newSnapshot);
-
-            expect(calls[4].args).toEqual(['end']);
 
         });
 
