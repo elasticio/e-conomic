@@ -144,13 +144,6 @@
     },
     "env": [
         "ECONOMIC_PUBLIC_APP_ID",
-        "ECONOMIC_PRIVATE_APP_ID",
-        "S3_KEY",
-        "S3_SECRET",
-        "S3_REGION",
-        "S3_BUCKET",
-        "S3_CRYPTO_ENABLED",
-        "S3_CRYPTO_PASSWORD",
-        "S3_CRYPTO_ALGORITHM"
+        "ECONOMIC_PRIVATE_APP_ID"
     ]
 }
