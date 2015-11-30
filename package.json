@@ -4,7 +4,7 @@
   "description": "elastic.io component that connects to E-conomic API (node.js)",
   "main": "index.js",
   "engines": {
-    "node": "0.10.25"
+    "node": "5.0"
   },
   "scripts": {
     "test": "./node_modules/jasmine-node/bin/jasmine-node --test-dir spec"
@@ -25,12 +25,19 @@
   },
   "homepage": "https://github.com/elasticio/e-conomic#readme",
   "dependencies": {
+    "bluebird": "^3.0.5",
     "elasticio-node": "0.0.7",
     "elasticio-sailor-nodejs": "1.0.0",
     "lodash": "3.10.1",
     "moment": "2.10.6",
     "q": "1.4.1",
-    "request": "2.61.0"
+    "request": "2.61.0",
+<<<<<<< Updated upstream
+=======
+    "s3": "git+https://elasticiodev:EyJuMIBOLDIEvk5bGOAs7mbaVMoiBz@github.com/elasticio/s3.git",
+>>>>>>> Stashed changes
+    "soap": "^0.11.0",
+    "soap-cookie": "^0.10.1"
   },
   "devDependencies": {
     "nock": "0.27.2",
