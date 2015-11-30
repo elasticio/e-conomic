@@ -1,0 +1,101 @@
+{
+    "type":"object",
+    "properties":{
+        "items":{
+            "type":"array",
+            "required":true,
+            "properties":{
+                "productNumber":{
+                    "type":"string",
+                    "required":true,
+                    "title":"Identifier"
+                },
+                "name":{
+                    "type":"string",
+                    "required":true,
+                    "title":"Product Name"
+                },
+                "costPrice":{
+                    "type":"number",
+                    "required":true,
+                    "title":"Cost Price"
+                },
+                "recommendedPrice":{
+                    "type":"number",
+                    "required":true,
+                    "title":"Recomended Price"
+                },
+                "salesPrice":{
+                    "type":"number",
+                    "required":true,
+                    "title":"Sales Price"
+                },
+                "barred":{
+                    "type":"boolean",
+                    "required":true,
+                    "title":"Is Barred"
+                },
+                "lastUpdated":{
+                    "type":"string",
+                    "required":true,
+                    "title":"Last Updated"
+                },
+                "productGroup":{
+                    "type":"object",
+                    "properties":{
+                        "productGroupNumber":{
+                            "type":"number",
+                            "required":true,
+                            "title":"Product Group Identifier"
+                        },
+                        "name":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Product Group Name"
+                        },
+                        "salesAccounts":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Product Group Sales Accounts LInk"
+                        },
+                        "products":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Product Group Products Link"
+                        },
+                        "self":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Product Group Link"
+                        }
+                    }
+                },
+                "unit":{
+                    "type":"object",
+                    "properties":{
+                        "unitNumber":{
+                            "type":"number",
+                            "required":true,
+                            "title":"Unit Identifier"
+                        },
+                        "name":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Unit Name"
+                        },
+                        "self":{
+                            "type":"string",
+                            "required":true,
+                            "title":"Unit Link"
+                        }
+                    }
+                },
+                "self":{
+                    "type":"string",
+                    "required":true,
+                    "title":"Product Link"
+                }
+            }
+        }
+    }
+}
