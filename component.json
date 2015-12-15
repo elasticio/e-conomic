@@ -10,7 +10,7 @@
                 "label": "Your AccessID",
                 "required": true,
                 "placeholder": "Paste your AccessID here",
-                "note": "Get AccessID by following the link <a href='https://secure.e-conomic.com/secure/api1/requestaccess.aspx?appId={{ECONOMIC_PUBLIC_APP_ID}}' target='_blank'>here</a>"
+                "note": "Get AccessID by following the link <a href='https://app.reviso.com/api1/requestaccess.aspx?appId={{ECONOMIC_PUBLIC_APP_ID}}' target='_blank'>here</a>"
             }
         }
     },
