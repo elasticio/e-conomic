@@ -30,6 +30,14 @@
             "metadata": {
                 "out": "./lib/schemas/getCustomers.out.json"
             }
+        },
+        "getProducts": {
+            "main": "./lib/triggers/getProductsList.js",
+            "type": "polling",
+            "title": "Query Products",
+            "metadata": {
+                "out": "./lib/schemas/getProductsList.out.json"
+            }
         }
     },
     "actions": {
