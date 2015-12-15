@@ -1,7 +1,7 @@
 {
     "title": "e-conomic",
     "description": "e-conomic REST API",
-    "url": "https://restapi.e-conomic.com/",
+    "url": "https://rest.reviso.com",
     "vars": ["ECONOMIC_PUBLIC_APP_ID"],
     "credentials": {
         "fields": {

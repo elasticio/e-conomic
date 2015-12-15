@@ -1,6 +1,6 @@
 {
   "name": "economic",
-  "version": "1.0.1",
+  "version": "reviso-1",
   "description": "elastic.io component that connects to E-conomic API (node.js)",
   "main": "index.js",
   "engines": {

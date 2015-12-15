@@ -14,6 +14,7 @@ function verify(credentials, cb) {
         if (err) {
             return cb(err);
         }
+
         if (res.statusCode !== 200) {
             if (res.statusCode === 401) {
                 return cb(null, {verified: false});
@@ -24,4 +25,3 @@ function verify(credentials, cb) {
         }
     }
 }
-
