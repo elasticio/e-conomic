@@ -1,0 +1,280 @@
+{
+    "type": "object",
+    "properties": {
+        "orders": {
+            "type": "array",
+            "properties": {
+                "Handle": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        }
+                    }
+                },
+                "Id": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Id"
+                },
+                "DebtorHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Number": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "Number": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Number"
+                },
+                "DebtorName": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor Name"
+                },
+                "DebtorAddress": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor Address"
+                },
+                "DebtorPostalCode": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor Postal Code"
+                },
+                "DebtorCity": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor City"
+                },
+                "DebtorCountry": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor Country"
+                },
+                "OurReferenceHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Number": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "Date": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Date"
+                },
+                "TermOfPaymentHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        }
+                    }
+                },
+                "DueDate": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Due Date"
+                },
+                "CurrencyHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Code": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Code"
+                        }
+                    }
+                },
+                "ExchangeRate": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Exchange Rate"
+                },
+                "IsVatIncluded": {
+                    "type": "boolean",
+                    "required": false,
+                    "title": "Is Vat Included"
+                },
+                "LayoutHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        }
+                    }
+                },
+                "IsArchived": {
+                    "type": "boolean",
+                    "required": false,
+                    "title": "Is Archived"
+                },
+                "IsSent": {
+                    "type": "boolean",
+                    "required": false,
+                    "title": "Is Sent"
+                },
+                "NetAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Net Amount"
+                },
+                "VatAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Vat Amount"
+                },
+                "GrossAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Gross Amount"
+                },
+                "Margin": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Margin"
+                },
+                "MarginAsPercent": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Margin As Percent"
+                },
+                "RoundingAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Rounding Amount"
+                },
+                "DebtorCounty": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor County"
+                },
+                "VatZone": {
+                    "type": "object",
+                    "properties": {
+                        "Number": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "lines": {
+                    "type": "array",
+                    "properties": {
+                        "Handle": {
+                            "type": "object",
+                            "properties": {
+                                "Id": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Id"
+                                },
+                                "Number": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Number"
+                                }
+                            }
+                        },
+                        "Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        },
+                        "Number": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Number"
+                        },
+                        "OrderHandle": {
+                            "type": "object",
+                            "properties": {
+                                "Id": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Id"
+                                }
+                            }
+                        },
+                        "Description": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Description"
+                        },
+                        "UnitHandle": {
+                            "type": "object",
+                            "properties": {
+                                "Number": {
+                                    "type": "number",
+                                    "required": false,
+                                    "title": "Number"
+                                }
+                            }
+                        },
+                        "ProductHandle": {
+                            "type": "object",
+                            "properties": {
+                                "Number": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Number"
+                                }
+                            }
+                        },
+                        "Quantity": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Quantity"
+                        },
+                        "UnitNetPrice": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Unit Net Price"
+                        },
+                        "DiscountAsPercent": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Discount As Percent"
+                        },
+                        "UnitCostPrice": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Unit Cost Price"
+                        },
+                        "TotalNetAmount": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Total Net Amount"
+                        },
+                        "TotalMargin": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Total Margin"
+                        },
+                        "MarginAsPercent": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Margin As Percent"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
