@@ -7,10 +7,10 @@
                 "Handle": {
                     "type": "object",
                     "properties": {
-                        "Handle Number": {
+                        "Number": {
                             "type": "number",
                             "required": false,
-                            "title": "Number"
+                            "title": "Handle Number"
                         }
                     }
                 },
@@ -22,10 +22,10 @@
                 "DebtorHandle": {
                     "type": "object",
                     "properties": {
-                        "DebtorHandle Number": {
+                        "Number": {
                             "type": "string",
                             "required": false,
-                            "title": "Number"
+                            "title": "DebtorHandle"
                         }
                     }
                 },
@@ -57,10 +57,10 @@
                 "OurReferenceHandle": {
                     "type": "object",
                     "properties": {
-                        "OurReferenceHandle Number": {
+                        "Number": {
                             "type": "number",
                             "required": false,
-                            "title": "Number"
+                            "title": "OurReferenceHandle Number"
                         }
                     }
                 },
@@ -70,17 +70,17 @@
                         "Id": {
                             "type": "number",
                             "required": false,
-                            "title": "Id"
+                            "title": "TermOfPaymentHandle Id"
                         }
                     }
                 },
                 "CurrencyHandle": {
                     "type": "object",
                     "properties": {
-                        "CurrencyHandle Code": {
+                        "Code": {
                             "type": "string",
                             "required": false,
-                            "title": "Code"
+                            "title": "Currency Code"
                         }
                     }
                 },
@@ -92,10 +92,10 @@
                 "LayoutHandle": {
                     "type": "object",
                     "properties": {
-                        "LayoutHandle Id": {
+                        "Id": {
                             "type": "number",
                             "required": false,
-                            "title": "Id"
+                            "title": "LayoutHandle Id"
                         }
                     }
                 },
