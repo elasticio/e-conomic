@@ -1,161 +1,175 @@
 {
     "type": "object",
     "properties": {
-        "id": {
-            "type": "number",
-            "required": true,
-            "title": "ID"
-        },
-        "orderId": {
-            "type": "number",
-            "required": true,
-            "title": "Order ID"
-        },
-        "remainder": {
-            "type": "number",
-            "required": false,
-            "title": "Remainder"
-        },
-        "remainderBaseCurrency": {
-            "type": "number",
-            "required": false,
-            "title": "Remainder Base Currency"
-        },
-        "netAmountBaseCurrency": {
-            "type": "number",
-            "required": true,
-            "title": "Net Amount Base Currency"
-        },
-        "customer": {
-            "type": "object",
-            "required": true,
+        "invoices": {
+            "type": "array",
             "properties": {
-                "customerNumber": {
+                "Handle": {
+                    "type": "object",
+                    "properties": {
+                        "Handle Number": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "Number": {
                     "type": "number",
-                    "required": true,
-                    "title": "Customer Number"
+                    "required": false,
+                    "title": "Number"
                 },
-                "name": {
+                "DebtorHandle": {
+                    "type": "object",
+                    "properties": {
+                        "DebtorHandle Number": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "DebtorName": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer Name"
+                    "title": "Debtor Name"
                 },
-                "address": {
+                "DebtorAddress": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer Address"
+                    "title": "Debtor Address"
                 },
-                "postalCode": {
+                "DebtorPostalCode": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer Postal Code"
+                    "title": "Debtor Postal Code"
                 },
-                "country": {
+                "DebtorCity": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer Country"
+                    "title": "Debtor City"
                 },
-                "city": {
+                "DebtorCountry": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer City"
+                    "title": "Debtor Country"
                 },
-                "county": {
+                "OurReferenceHandle": {
+                    "type": "object",
+                    "properties": {
+                        "OurReferenceHandle Number": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Number"
+                        }
+                    }
+                },
+                "TermOfPaymentHandle": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        }
+                    }
+                },
+                "CurrencyHandle": {
+                    "type": "object",
+                    "properties": {
+                        "CurrencyHandle Code": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Code"
+                        }
+                    }
+                },
+                "IsVatIncluded": {
+                    "type": "boolean",
+                    "required": false,
+                    "title": "Is Vat Included"
+                },
+                "LayoutHandle": {
+                    "type": "object",
+                    "properties": {
+                        "LayoutHandle Id": {
+                            "type": "number",
+                            "required": false,
+                            "title": "Id"
+                        }
+                    }
+                },
+                "DeliveryDate": {
                     "type": "string",
                     "required": false,
-                    "title": "Customer County"
+                    "title": "Delivery Date"
+                },
+                "Date": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Date"
+                },
+                "DueDate": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Due Date"
+                },
+                "Heading": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Heading"
+                },
+                "OrderNumber": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Order Number"
+                },
+                "NetAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Net Amount"
+                },
+                "VatAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Vat Amount"
+                },
+                "GrossAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Gross Amount"
+                },
+                "Remainder": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Remainder"
+                },
+                "RemainderDefaultCurrency": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Remainder Default Currency"
+                },
+                "RoundingAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Rounding Amount"
+                },
+                "DebtorCounty": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Debtor County"
+                },
+                "NetAmountDefaultCurrency": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Net Amount Default Currency"
+                },
+                "DeductionAmount": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Deduction Amount"
                 }
             }
-        },
-        "date": {
-            "type": "string",
-            "required": true,
-            "title": "Date"
-        },
-        "month": {
-            "type": "string",
-            "required": true,
-            "title": "Creation Month"
-        },
-        "year": {
-            "type": "string",
-            "required": true,
-            "title": "Creation Year"
-        },
-        "dueDate": {
-            "type": "string",
-            "required": true,
-            "title": "Due Date"
-        },
-        "dueDateTimestamp": {
-            "type": "number",
-            "required": true,
-            "title": "Due Date Timestamp"
-        },
-        "paymentTermsNumber": {
-            "type": "number",
-            "required": true,
-            "title": "Payment Terms Number"
-        },
-        "currency": {
-            "type": "string",
-            "required": true,
-            "title": "Currency"
-        },
-        "vatIncluded": {
-            "type": "boolean",
-            "required": true,
-            "title": "VAT included"
-        },
-        "deliveryAddress": {
-            "type": "string",
-            "required": false,
-            "title": "Delivery Address"
-        },
-        "deliveryPostalCode": {
-            "type": "string",
-            "required": false,
-            "title": "Delivery Postal Code"
-        },
-        "deliveryCity": {
-            "type": "string",
-            "required": false,
-            "title": "Delivery City"
-        },
-        "heading": {
-            "type": "string",
-            "required": false,
-            "title": "Heading"
-        },
-        "netAmount": {
-            "type": "number",
-            "required": true,
-            "title": "Net Amount"
-        },
-        "grossAmount": {
-            "type": "number",
-            "required": true,
-            "title": "Gross Amount"
-        },
-        "vatAmount": {
-            "type": "number",
-            "required": false,
-            "title": "VAT Amount"
-        },
-        "roundingAmount": {
-            "type": "number",
-            "required": false,
-            "title": "Rounding Amount"
-        },
-        "deductionAmount": {
-            "type": "number",
-            "required": false,
-            "title": "Deduction Amount"
-        },
-        "pdf": {
-            "type": "string",
-            "required": false,
-            "title": "PDF"
         }
     }
 }

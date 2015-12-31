@@ -38,6 +38,14 @@
             "metadata": {
                 "out": "./lib/schemas/getProductsList.out.json"
             }
+        },
+        "getOrders": {
+          "main": "./lib/triggers/getOrders.js",
+          "type": "polling",
+          "title": "Query Orders",
+          "metadata": {
+            "out": "./lib/schemas/getOrders.out.json"
+          }
         }
     },
     "actions": {
