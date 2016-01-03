@@ -25,7 +25,7 @@
                         "Number": {
                             "type": "string",
                             "required": false,
-                            "title": "Number"
+                            "title": "DebtorHandle Number"
                         }
                     }
                 },
@@ -171,106 +171,6 @@
                             "type": "string",
                             "required": false,
                             "title": "Number"
-                        }
-                    }
-                },
-                "lines": {
-                    "type": "array",
-                    "properties": {
-                        "Handle": {
-                            "type": "object",
-                            "properties": {
-                                "Id": {
-                                    "type": "number",
-                                    "required": false,
-                                    "title": "Id"
-                                },
-                                "Number": {
-                                    "type": "number",
-                                    "required": false,
-                                    "title": "Number"
-                                }
-                            }
-                        },
-                        "Id": {
-                            "type": "number",
-                            "required": false,
-                            "title": "Id"
-                        },
-                        "Number": {
-                            "type": "number",
-                            "required": false,
-                            "title": "Number"
-                        },
-                        "OrderHandle": {
-                            "type": "object",
-                            "properties": {
-                                "Id": {
-                                    "type": "number",
-                                    "required": false,
-                                    "title": "Id"
-                                }
-                            }
-                        },
-                        "Description": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Description"
-                        },
-                        "UnitHandle": {
-                            "type": "object",
-                            "properties": {
-                                "Number": {
-                                    "type": "number",
-                                    "required": false,
-                                    "title": "Number"
-                                }
-                            }
-                        },
-                        "ProductHandle": {
-                            "type": "object",
-                            "properties": {
-                                "Number": {
-                                    "type": "string",
-                                    "required": false,
-                                    "title": "Number"
-                                }
-                            }
-                        },
-                        "Quantity": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Quantity"
-                        },
-                        "UnitNetPrice": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Unit Net Price"
-                        },
-                        "DiscountAsPercent": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Discount As Percent"
-                        },
-                        "UnitCostPrice": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Unit Cost Price"
-                        },
-                        "TotalNetAmount": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Total Net Amount"
-                        },
-                        "TotalMargin": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Total Margin"
-                        },
-                        "MarginAsPercent": {
-                            "type": "string",
-                            "required": false,
-                            "title": "Margin As Percent"
                         }
                     }
                 }
