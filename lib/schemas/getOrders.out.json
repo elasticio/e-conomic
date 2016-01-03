@@ -4,16 +4,6 @@
         "orders": {
             "type": "array",
             "properties": {
-                "Handle": {
-                    "type": "object",
-                    "properties": {
-                        "Id": {
-                            "type": "number",
-                            "required": false,
-                            "title": "Id"
-                        }
-                    }
-                },
                 "Id": {
                     "type": "number",
                     "required": false,
@@ -65,7 +55,7 @@
                         "Number": {
                             "type": "number",
                             "required": false,
-                            "title": "Number"
+                            "title": "OurReferenceHandle Number"
                         }
                     }
                 },
@@ -80,7 +70,7 @@
                         "Id": {
                             "type": "number",
                             "required": false,
-                            "title": "Id"
+                            "title": "TermOfPaymentHandle Id"
                         }
                     }
                 },
@@ -95,7 +85,7 @@
                         "Code": {
                             "type": "string",
                             "required": false,
-                            "title": "Code"
+                            "title": "CurrencyHandle Code"
                         }
                     }
                 },
@@ -115,7 +105,7 @@
                         "Id": {
                             "type": "number",
                             "required": false,
-                            "title": "Id"
+                            "title": "LayoutHandle Id"
                         }
                     }
                 },
@@ -170,7 +160,7 @@
                         "Number": {
                             "type": "string",
                             "required": false,
-                            "title": "Number"
+                            "title": "VatZone Number"
                         }
                     }
                 }
