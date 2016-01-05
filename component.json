@@ -46,6 +46,14 @@
           "metadata": {
             "out": "./lib/schemas/getOrders.out.json"
           }
+        },
+        "getOrderLines": {
+          "main": "./lib/triggers/getOrderLines.js",
+          "type": "polling",
+          "title": "Query Order Lines",
+          "metadata": {
+            "out": "./lib/schemas/getOrderLines.out.json"
+          }
         }
     },
     "actions": {
