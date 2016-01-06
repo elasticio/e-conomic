@@ -26,6 +26,7 @@
   "homepage": "https://github.com/elasticio/e-conomic#readme",
   "dependencies": {
     "bluebird": "^3.0.5",
+    "debug": "^2.2.0",
     "elasticio-node": "0.0.7",
     "elasticio-sailor-nodejs": "1.0.0",
     "lodash": "3.10.1",
